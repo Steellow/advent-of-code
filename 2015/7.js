@@ -13,7 +13,7 @@ NOT y -> i`.split("\n");
 const wires = {};
 
 while (Object.keys(wires).length < input.length) {
-  //   console.log(Object.keys(wires).length, " / ", input.length);
+  // console.log(Object.keys(wires).length, " / ", input.length);
   input.forEach((input) => {
     const [instruction, wire] = input.split(" -> ");
 
@@ -33,8 +33,10 @@ while (Object.keys(wires).length < input.length) {
       const result = parse(x) & parse(y);
       logIfNotNull(result, wire);
     } else if (operator === "OR") {
-      const result = parse(x) | parse(y);
-      logIfNotNull(result, wire);
+      if (parse(x) && parse(y)) {
+        const result = parse(x) | parse(y);
+        logIfNotNull(result, wire);
+      }
     } else if (operator === "LSHIFT") {
       const result = parse(x) << parse(y);
       logIfNotNull(result, wire);
