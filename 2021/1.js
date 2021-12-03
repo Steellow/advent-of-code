@@ -24,10 +24,8 @@ console.log("Answer 1: " + incs);
 //!//!//!//!/!
 
 incs = 0;
-let prevTotal;
-let a;
-let b;
-let c;
+let prevTotal, a, b, c;
+
 for (let i = 0; i < input.length; i++) {
   // Get the next num, calc total
   c = Number(input[i]);
